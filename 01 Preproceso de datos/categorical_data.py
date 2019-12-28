@@ -19,11 +19,10 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 
 #Codificar datos categóricos
-
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_X = LabelEncoder() # No necesita ningún parámetro
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])# Transforma texto en número
 onehotenconder = OneHotEncoder(categorical_features=[0])
 X = onehotenconder.fit_transform(X).toarray()
 labelencoder_y = LabelEncoder()
-y = labelencoder_y.fit_transform(y) # No: 0 Yes: 1
+y = labelencoder_y.fit_transform(y) 

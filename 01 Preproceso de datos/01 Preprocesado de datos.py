@@ -6,6 +6,7 @@ Created on Sat Dec 14 14:07:12 2019
 
 # Datos Categoricos - Datos faltantes
 
+# Como importar librerías
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
