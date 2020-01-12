@@ -1,0 +1,33 @@
+---
+title: "Ecuations"
+author: "Easy Report"
+date: "10-01-2020"
+output: html_document
+---
+
+# Regresion Lineal
+
+$$y = \theta_0+\theta_1 x$$
+
+```{r}
+rainfall = c(3.07,3.55,3.90,4.38, 4.79,5.30,5.42,5.99,6.45,6.77)
+wheat = c(78,82,85,91,92,96,97,104,111,119)
+summary(cbind(rainfall, wheat))
+
+tableData = data.frame(rainfall, wheat)
+```
+
+
+```{r}
+library(ggplot2)
+
+ggplot()+
+  geom_point(aes(x=tableData$rainfall,
+                 y=tableData$wheat),
+             colour = "red")+
+  ggtitle("Precitaciones vs longitud del trigo")+
+  xlab("Precipitaciones (in)")+
+  ylab("Longitud del trigo (in)")
+```
+
+$$h(X) =  \theta_0+\theta_1*x_1 $$

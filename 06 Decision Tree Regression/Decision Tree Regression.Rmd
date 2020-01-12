@@ -1,0 +1,15 @@
+---
+title: "Decision Tree Regression"
+author: "Daniel"
+date: "05-01-2020"
+output: html_document
+---
+
+# CART
+
+CART: Classification Tree Regression.
+
+* Árboles de clasificación.
+* Árboles de Regresión.
+
+El algoritmo comienza a hacer divisiones.

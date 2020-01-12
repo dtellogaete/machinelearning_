@@ -1,0 +1,82 @@
+---
+title: "SVM"
+author: "Daniel"
+date: "20-12-2019"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Regresión con Support Vector Machine
+Maquinas de soporte vectoreal sirven para regresiones lineales, por eso se llaman SVR.
+
+Dependeran de un nucleo o kernel, el kernel determinará el el tipo de regresión.
+
+Ajusta el mayor corredor posible, que separará dos clases.
+
+La SVR lleva a cabo una regresión lineal en un espacio de dimensión superior.
+
+Podemos pensar que al crear un SVR es como si cada punto de conjunto de entrenamiento representara su propia dimensión. Al evaluar el núcleo entre un punto de test y un punto del conjunto de entrenamiento, el resultado es la coordenada del punto de test en dicha dimensión.
+
+El vector que obtenemos al evaluar el punto de test para todos los puntos del dataset, k es la representación del punto de test de dimensión superior.
+
+Cuando tenemos ese vector en el espacio de dimensión superior, lo utilizamos para hacer la regresión propiamente dicha.
+
+Se necesita un conjunto de entrenamiento $\mathcal{T}=\{\overrightarrow{X},\overrightarrow{Y}\}$ y vaya acompañado de las soluciones en dicho dominio.
+
+El trabajo de la SVM es aproximar la función que se ha usado para generar los puntos del conjunto de entrenamiento: $F(\overrightarrow{X})=\overrightarrow{Y}$.
+
+En el problema de clasificación, los vectores X se utilizan para definir un hiperplano que separa la dos categorias en nuestra solución.
+
+Estos vectores se utilizan para llevar a cabo la regresión lineal. Los vectores más cercanos al punto de test se llaman vectores de soporte. Podemos evaluar nuestra función en cualquier lugar, por lo que cualquier vector podría estar más cerca de nuestra ubicación de prueba.
+
+## Construir un modelo de SVR
+1. Tener un conjunto de entrenamiento, $\mathcal{T}=\{\overrightarrow{X},\overrightarrow{Y}\}$.
+2. Elegir un núcleo y sus parámetros así como llevar a cabo cualquier regularización que sea necesaria.
+3. Crear la matriz de correlaciones, $K$.
+4. Entrenar al modelo, de forma exacta o aproximada para obtener los coeficientes para crea un estimador.
+5. Utilizar estos coeficientes para crear un estimador.
+
+$$f(\overrightarrow{X}, \overrightarrow{\alpha}, x^*)=y^*$$
+
+Lo siguiente es elegir un núcleo:
+* Lineal $\langle x,y \rangle $
+* No lineal $\langle \varphi(x), \varphi(y) \rangle = K(x,y)$
+* Gaussiano (más utilizado)
+
+Regularización
+* Ruido
+
+**Matriz de Correlaciones**
+
+$$K_{i,j}= exp(\sum_k{\theta_k|x_{k}^*-x_{k}^*|^2)+\epsilon\delta_{i,j}}$$
+
+**Paso de optimización**
+La parte principal del algoritmo es $K \overrightarrow{\alpha}=\overrightarrow{y}$
+
+* $\overrightarrow{y}$ es el vector del conjunto de entrenamiento.
+* $K$ es la matrix de correlaciones.
+* $\overrightarrow{\alpha}$ es el conjunto de incógnitas, para las cuales resolvemos el sistema de ecuaciones lineal como
+
+$$\overrightarrow{\alpha} = K^{-1} \overrightarrow{y}$$
+**Vector de correlaciones**
+
+* Cuando tenemos la estimación de los parámetros $\overrightarrow{\alpha}$ usamos los coeficientes que hemos calculado durante el paso de optimización y el kernel que habíamos elegido al inicio.
+* Para estimar el valor $y^*$ para un punto de test $x^*$ calculamos el vector de correlaciones $\overrightarrow{k}$,
+
+$$k_i = exp(\sum_k \theta_k|x_k^*-x_k^*|^2)$$
+
+de donde: $y^* = \overrightarrow{\alpha} \cdot \overrightarrow{k}$
+
+### En resumen
+Intentemos simplificar las cosas:
+La SVR tiene un objetivo de regresión diferente a la regresión lineal.
+
+* En la regresión lineal se intenta minimizar el error entre la predicción y los datos.
+
+* En SVR el objetivo es que los errores no superen el umbral establecido.
+
