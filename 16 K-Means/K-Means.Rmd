@@ -1,0 +1,34 @@
+---
+title: "K-Means"
+author: "Daniel"
+date: "07-02-2020"
+output: html_document
+---
+
+# K-Means
+
+Pasos:
+* 1.- Elegir el número de K clusters
+* 2.- Seleccionar al azar K puntos, los baricentros (no necesariamente de nuestro dataset)
+* 3.- Asignar cada punto al baricentro más cercano. Esto formará los K cluster.
+* 4.- Calcular y asignar el nuevo baricentro de clúster.
+* 5.- Reasignat cada punto de los datos a su baricentro más cercano. Si ha habido nuevas asignaciones, ir al Paso 4, si no ir FIN.
+
+## La trampa de la inicialización aleatoria.
+Si elegimos K = 3 cluster.
+
+Solución -> Mejora del algoritmo K-Means++
+
+## Como seleccionar el número correctos de clusters
+
+La suma de los cuadrados de los centros de los grupos
+
+$$WCSS = \sum_{P_i \in Cluster1}d(P_i,C_i)^2+\sum_{P_i \in Cluster2}d(P_i,C_2)^2+\sum_{P_i \in Cluster3}d(P_i,C_3)^2$$
+
+
+
+
+
+
+
+

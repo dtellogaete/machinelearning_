@@ -1,0 +1,17 @@
+---
+title: "Untitled"
+author: "Daniel"
+date: "26-01-2020"
+output: html_document
+---
+
+# Equations
+
+$$MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i-\bar{y_i})^2$$
+
+$$MSE\cdot n = (y_1-(\theta_1x_1-\theta_0))^2+...+(y_n-(\theta_1x_n-\theta_0))^2$$
+
+$$MSE\cdot n = y_1^{2}-2y_1(\theta_1x_1-\theta_0)+(\theta_1x_1-\theta_0)^2+...+y_n^{2}-2y_n(\theta_1x_n-\theta_0)+(\theta_1x_n-\theta_0)^2$$
+
+
+$$MSE\cdot n = (y_1^2+...+y_n^2)-2m(x_1y_1+...+x_ny_n)-2b(y_1+...y_n)+\theta_1^2(x_1+...x_n)+2\theta_0\theta_1(x_1+...x_n)+\theta_0n$$

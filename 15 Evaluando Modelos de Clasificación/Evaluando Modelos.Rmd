@@ -1,0 +1,35 @@
+---
+title: Evaluar modelos
+output: html_notebook
+---
+
+# Falsos positivos y negativos.
+
+* Falsos positivos (error tipo I): usuarios de categoría 0, pero el algoritmo lo marca como 1.
+* Falso negativo (error tipo II): usuarios de categoría 1, pero el algoritmo lo marca como 0.
+
+Un error de tipo I es pasable, el error de tipo es II es trágico.
+
+# Matriz de confusión
+
+Calcular dos proporciones
+
+* Ratio de precisión = Correctos/total.
+
+* Ratio de error = Incorrectos/total.
+
+# Paradoja de la precisión
+
+Paradoja de la precisión, si hay muchos datos que pertenecen a un grupo es más probable que pertenzca a ese grupo. 
+Cuando hay un suceso muy raro, es mejor obviarlo.
+
+# Perfil de precisión acumulada
+
+$$AR = \frac{A_r}{A_p}$$
+
+* 90% < X < 100% demasiado bueno.
+* 80% < X < 90% muy bueno.
+* 70% < x < 80% bueno.
+* 60% < x < 70% malo.
+* x < 60% una basura.
+

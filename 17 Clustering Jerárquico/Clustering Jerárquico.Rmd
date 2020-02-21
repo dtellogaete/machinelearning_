@@ -1,0 +1,20 @@
+---
+title: "Clustering Jerárquico"
+author: "Daniel"
+date: "14-02-2020"
+output: html_document
+---
+
+# Clustering Jerárquico Aglomerativo
+
+* **PASO 1**: Hacer que cada punto sea un propio cluster -> Así tendremos N Cluster.
+* **PASO 2**: Elegir los dos puntos más cercanos y juntarlos en un único cluster. -> N-1 clusters.
+* **PASO 3**: Elegir los dos clusters más cercanos y juntarlos en un único cluster. -> N-2 clusters.
+* **PASO 4**: Repetir el PASO 3 hasta solo tener un único cluster.
+
+# Cómo funcionan los dendrogramas
+
+Dendrogramas - Dos Clusters 
+
+
+

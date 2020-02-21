@@ -1,0 +1,18 @@
+---
+title: "Eclat"
+author: 
+date: "17-02-2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## Ecuación de support
+Cesta de compra:
+$$sop(I)=\frac{|transacciones\:que\:contienen\: I |}{|transacciones|}$$
+
+## Pasos del algoritmo ECLAT
+
+* 1. Configurar un soporte mínimo a utilizar.
+* 2. Tomar todos los subconjuntos de las transacciones con soporte superior al mínimo establecido.
+* 3. Ordenar esos subconjuntos por support descendiente.

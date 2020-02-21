@@ -1,0 +1,11 @@
+---
+title: "K Nearest Neighboars"
+output: html_notebook
+---
+
+# Algoritmo
+
+* Paso 1: Elegir el número de K vecinos.
+* Paso 2: Tomar los K vecinos más cercanos del nuevo dato, según la distancia Euclídea (Puede ser otro tipo de distancia)
+* Paso 3: Entre esos K vecinos, contar el número de puntos que pertenecen a cada categoría.
+* Paso 4: Asignar el nuevo dato a la categoría con más vecinos en ella.
