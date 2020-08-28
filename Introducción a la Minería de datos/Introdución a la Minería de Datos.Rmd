@@ -1,0 +1,85 @@
+---
+title: "Introducción a la Minería de Datos"
+author: "Daniel Tello"
+date: "03-08-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Reglas de Asociación
+
+## Motivación
+
+* Analizar datos de compra de clientes
+* Asociaciones entre los diferentes productos
+
+## Aplicaciones
+
+* Ordenamiento de productos
+* Patrones de navegación
+* Promociones pares de productos
+* Descuentos específicos por cliente
+* Patrones de encuesta
+* Descubrir patrones en las respuestas
+* Comprobar hipótesis sobre preferencia de las personas
+* Encontrar relaciones entre grupos de respuestas
+
+## Algoritmo Apriori (Agrawal, 1994)
+
+Algoritmo que permite encontrar reglas de asociación en forma automática desde los datos.
+Objetivo: Aprender un algoritmo para encontrar reglas de asociación con un mínimo de soporte y confianza.
+
+* **Itemset:** colección de uno o más ítems. Ejemplo {Leche, Pañales, Cerveza}
+* **Soporte:** frecuencia relativa en la que un itemset aparece dentro de los datos.
+
+$$s = \frac{\sigma(X)}{|T|}$$
+
+* **Itemset frecuente:** Un itemset el cual aparece más veces que un determinado umbral.
+* **Regla de Asociación:** Expresión de la forma X -> Y, donde X e Y son Itemsets:
+Ej: {Leche, Pañales} -> {Cerveza}
+* **Confianza:** Mide que tan confiable es la suposición hecha por la regla. Probablidad empírica de que se compre el itemset Y, sabiendo que se compro el itemset X.
+
+$$c(X \rightarrow Y) = \frac{\sigma(X \cup Y)}{\sigma(X)}$$
+
+* **Lift:** Confianza de la regla dividido por el soporte del consecuente:
+
+$$Lift = \frac{c(X \rightarrow Y)}{s(Y)}$$
+
+$Lift>1:$ Probabilidad del consecuente aumentó una vez que sabemos que el consumidor compró items del antecedente.
+
+$Lift = 1$: La probabilidad no se vió afectada, por lo tanto el antedecente no aporta nada de información respecto a la compra u ocurrencia del consecuente.
+
+$Lift<1$ El antecendente tuvo un efecto negativo en la ocurrencia del consecuente, haciendo que la probablidad baje.
+
+### Pasos algoritmo
+
+1. Encontrar reglas de asociación X->Y, primero encontrar los itemset frecuentes.
+
+Para saber la cantidad de Itemset es $2^n-1$, donde $n$ es el número de items.
+
+**Principio de Monotocidad**: Si un itemset es *frecuente*, entonces todos los subgrupos de éste también son frecuentes. Si un itemset *no es frecuente*, entonces cualquier conjunto que contenga este dataset lo será. Este principio ayuda a descartar itemset no apropiados.
+La primera parte del algoritmo Apriori es encontrar los itemset frecuentes.
+
+2. Funcionamiento del Algoritmo Apriori
+
+* Utiliza el *Principio de monotonicidad* para encontrar itemset frecuentes.
+
+$$\forall X,Y: (X \subseteq Y) => s(X) \geq s(Y)$$
+* El algoritmo primero obtiene los itemset frecuentes y después calcula las reglas de asociación a partir de ellos.
+
+* Definir un orden (orden lexicográfico) dentro de lops productos.
+
+### Resumen algoritmo Apriori
+
+* Posibles candidatos.
+
+* Eliminar usando monotonicidad.
+
+* Evaluar frecuencia.
+
+* Generar nuevos candidatos.
+
+

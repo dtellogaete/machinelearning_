@@ -1,0 +1,25 @@
+set.seed(0)
+LogisticRegressionGD = function(lrate = 0.1, niter = 10000,
+                                X, y){
+  theta = rnorm(as.numeric(length(X))+1)
+  for (i in 1:niter){
+    net_input = net_input(X, theta)
+    h = sigmoid(net_input)
+    errors = h-y
+    theta[-1] = theta[-1] - lrate*t(X)*errors
+    theta[1] = theta[1] - lrate*sum(errors)
+  }
+  return(theta)
+}
+
+net_input = function(X, theta){
+  return(t(X)*theta[-1]+theta[1])
+}
+
+sigmoid = function(z){
+  return (1 / (1+exp(-z)))
+}
+
+# Importar el dataset
+dataset = read.csv("Social_Network_Ads.csv")
+dataset = dataset[3:4]

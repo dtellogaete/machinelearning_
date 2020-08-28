@@ -6,5 +6,3 @@ output: html_notebook
 # Asociaction rule learning
 ## Apriori Intuition
 
-What is it all about?
-

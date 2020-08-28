@@ -1,0 +1,36 @@
+---
+title: "muestreo_thompson"
+author: "Daniel Tello"
+date: "03-05-2020"
+output: pdf_document
+---
+
+# Idea del muestreo de Thompson
+
+## El problema del bandido multibrazo
+
+* Tenemos **d** brazos. Por ejemplo, los brazos son anuncios que mostramos a los usuarios cuando se conectan a una página web.
+* Cada vez que un usuario se conecta a la página web, se desencadena una ronda.
+* En cada ronda, **n**, se elige uno de los anuncios a ser mostrado por el usuario.
+* A cada ronda **n**, el anuncio **i** da una recompensa: $r_i(n)\in\{0,1\}$, $r_i(n) = 1$, si el usuario hace click en el anuncio i en la ronda n; 0 en caso contrario.
+* Nuestra meta es maximizar la recompensa a través de las rondas que se lleven a cabo.
+
+### Algoritmo de muestro Thompson
+
+#### Paso 1
+
+A cada ronda **n**, se consideran dos números para cada anuncio.
+1. $N_i^1(n)$ El número de veces que el anuncio **i** recibe una recompensa 1 en la ronda **n**.
+2. $N_i^0(n)$ El número de veces que el anuncio **i** recibe una recompensa 0 en la ronda n.
+
+
+#### Paso 2
+
+Para cada anuncio i, se elige un valor aleatorio generado a partir de la distribución:
+
+$$\theta_i(n) = \beta(N_i^1(n)+1, N_i^0(n)+1)$$
+
+#### Paso 3 
+Se elige al anuncio con mayor valor
+
+
